@@ -1,2 +1,2 @@
 # Pink-Theme
-Pick theme for Hyprland
+Pink theme for Hyprland
