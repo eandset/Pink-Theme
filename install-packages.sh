@@ -24,8 +24,9 @@ PACKAGES=(
     rofi 
     vesktop
     yazi
-    waybar
+    swaync
     peaclock
+    waybar
     qt5ct 
     qt6ct 
     quickshell-git 

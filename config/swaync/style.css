@@ -1,0 +1,282 @@
+/* --- ПАЛИТРА --- */
+@define-color base-bg #1F181A;
+@define-color notification-bg #2B2124;
+
+/* Розовые цвета */
+@define-color primary-pink #E6A2A6;
+@define-color secondary-pink #D6A5B1;
+@define-color muted-pink alpha(#D6A5B1, 0.5);
+
+@define-color text-color #F2E9EA;
+@define-color text-dark #1F181A;
+
+/* --- АНИМАЦИИ (Keyframes) --- */
+@keyframes slide-in {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+* {
+  font-family: "JetBrains Mono Nerd Font", "Roboto", sans-serif;
+  font-weight: 600;
+  /* Добавляем глобальную плавность для смены цветов */
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Окно Центра Уведомлений */
+.control-center {
+  background: @base-bg;
+  border: 2px solid @secondary-pink;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  /* Анимация появления контента при открытии шторки */
+  animation: slide-in 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Виджет: Заголовок */
+.widget-title {
+  color: @primary-pink;
+  background: transparent;
+  padding: 12px 20px;
+  margin: 10px;
+  border-bottom: 1px solid @muted-pink;
+}
+
+.widget-title > label {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.widget-title > button {
+  font-size: 14px;
+  color: @base-bg;
+  background: @primary-pink;
+  border: none;
+  box-shadow: none;
+  border-radius: 12px;
+  padding: 6px 16px;
+  font-weight: bold;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1); /* Плавный ховер */
+}
+
+.widget-title > button:hover {
+  background: @secondary-pink;
+  color: @base-bg;
+  transform: scale(1.05); /* Легкое увеличение кнопки */
+  box-shadow: 0 2px 8px rgba(230, 162, 166, 0.4);
+}
+
+/* Виджет: Не беспокоить (DND) */
+.widget-dnd {
+  background: @notification-bg;
+  padding: 12px 20px;
+  margin: 10px;
+  border-radius: 18px;
+  border: 1px solid @muted-pink;
+}
+
+.widget-dnd > switch {
+  border-radius: 18px;
+  background: alpha(@secondary-pink, 0.2);
+  border: 1px solid @secondary-pink;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.widget-dnd > switch:checked {
+  background: @primary-pink;
+}
+
+.widget-dnd > switch slider {
+  background: @text-color;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* --- УВЕДОМЛЕНИЯ --- */
+.notification-row {
+  outline: none;
+  margin: 2px 0;
+  /* Анимация появления каждого нового уведомления */
+  animation: slide-in 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+.notification {
+  background: @notification-bg;
+  border-radius: 13px;
+  margin: 6px 2px; 
+  padding: 10px 10px; 
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  border: 1px solid @secondary-pink;
+  
+  /* Плавность трансформаций при наведении */
+  transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease, background 0.2s ease;
+}
+
+/* Эффект левитации при наведении */
+.notification:hover {
+  background: lighter(@notification-bg);
+  transform: scale(1.01) translateY(-2px); /* Чуть увеличивается и поднимается */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.notification-content {
+  background: transparent;
+  margin: 0px;
+}
+
+.notification-content .text-box {
+  margin-left: 10px;
+}
+
+/* Заголовок уведомления */
+.summary {
+  font-size: 18px;
+  color: @primary-pink;
+  text-shadow: none;
+  font-weight: 800;
+  margin-bottom: 2px;
+  transition: color 0.2s ease;
+}
+
+.image {
+
+  background: #2E2427; /* Цвет фона */
+  padding: 8px;        /* Отступ картинки от краев фона */
+  border-radius: 12px; /* Скругление самого фона */
+}
+
+/* Текст уведомления */
+.body {
+  font-size: 14px;
+  color: @text-color;
+  text-shadow: none;
+  line-height: 1.4;
+  margin-left: 8px;
+  max-height: 100px; /* Вернул 100px, 10px слишком мало для текста */
+  overflow: hidden;
+}
+
+.time {
+  font-size: 11px;
+  color: @secondary-pink;
+  margin-right: 0px;
+  text-shadow: none;
+  padding-bottom: 5px;
+}
+
+/* Плеер (MPRIS) */
+.widget-mpris {
+  background: @notification-bg;
+  border-radius: 18px;
+  padding: 15px 10px;
+  margin: 10px;
+  border: 1px solid @secondary-pink;
+}
+
+.widget-mpris-title {
+  font-size: 15px;
+  font-weight: bold;
+  color: @primary-pink;
+  margin-bottom: 4px;
+}
+
+.widget-mpris-subtitle {
+  font-size: 12px;
+  color: @secondary-pink;
+}
+
+/* Кнопки плеера */
+.widget-mpris button {
+  color: @text-color;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 6px;
+  margin: 0 4px;
+  transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Анимация кнопок плеера */
+.widget-mpris button:hover {
+  background: @primary-pink;
+  color: @base-bg;
+  transform: scale(1.15); /* Кнопки увеличиваются сильнее */
+}
+
+.widget-mpris > box > box {
+   background: @secondary-pink; 
+}
+
+/* Всплывающие уведомления (Popups) */
+.floating-notifications {
+  background: transparent;
+}
+
+.floating-notifications .notification {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  border: 2px solid @primary-pink;
+  margin: 10px 20px;
+  
+  /* Всплывашки выезжают справа */
+  animation: slide-in 0.4s cubic-bezier(0.25, 1, 0.5, 1); 
+}
+
+/* Группы уведомлений */
+.notification-group {
+  border: 1px solid #E6A2A6;
+  border-radius: 18px;
+  background: transparent;
+  margin-bottom: 10px;
+}
+
+.notification-group-header {
+  color: #E6A2A6;
+  font-weight: bold;
+  padding: 5px 15px;
+}
+
+.notification-group-icon {
+  color: #D6A5B1;
+}
+
+/* Цвет заголовка при наведении на уведомление */
+.notification:hover .summary {
+  color: #FFFFFF;
+}
+
+/* Область клика (Action Area) */
+.notification-default-action {
+  background: transparent;
+  border-radius: 10px;
+  /* Важная анимация для фона при наведении */
+  transition: background 0.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.notification-default-action:hover {
+  background: @muted-pink;
+}
+
+/* Кнопка закрытия (крестик) */
+.close-button {
+    background: transparent;
+    color: @secondary-pink;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    border: none;
+    box-shadow: none;
+}
+
+.close-button:hover {
+    background: @primary-pink;
+    color: @base-bg;
+    transform: rotate(90deg); /* Крестик крутится при наведении */
+}

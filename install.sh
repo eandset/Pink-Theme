@@ -64,7 +64,7 @@ echo -e "${PINK}📂 Deploying new configs to ~/.config...${NC}"
 CONFIG_DIRS=(
     "cava" "fastfetch" "hypr" "kitty" "Kvantum" 
     "qt5ct" "qt6ct" "quickshell" "rofi" "waybar" 
-    "vesktop" "yazi"
+    "vesktop" "yazi" "swaync"
 )
 
 mkdir -p ~/.config
