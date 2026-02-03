@@ -1,0 +1,7 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "Mintass/black"
+rev = "d91f8f2"
+hash = "87da3630653b6d272e43658418599188"

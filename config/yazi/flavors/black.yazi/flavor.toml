@@ -1,0 +1,257 @@
+# vim:fileencoding=utf-8:foldmethod=marker
+
+# : App {{{
+
+[app]
+overall = { bg = "#0a0a0a" }
+
+# : }}}
+
+# : Manager {{{
+
+[mgr]
+cwd = { fg = "#cccccc" }
+
+# Find
+find_keyword  = { fg = "#ffffff", bold = true, italic = true, underline = true }
+find_position = { fg = "#888888", bg = "reset", bold = true, italic = true }
+
+# Symlink
+symlink_target = { italic = true }
+
+# Marker
+marker_copied   = { fg = "#666666", bg = "#666666" }
+marker_cut      = { fg = "#444444", bg = "#444444" }
+marker_marked   = { fg = "#999999", bg = "#999999" }
+marker_selected = { fg = "#ffffff", bg = "#ffffff" }
+
+# Count
+count_copied   = { fg = "#000000", bg = "#666666" }
+count_cut      = { fg = "#ffffff", bg = "#444444" }
+count_selected = { fg = "#000000", bg = "#ffffff" }
+
+# Border
+border_symbol = "│"
+border_style  = { fg = "#333333" }
+
+# Highlighting
+syntect_theme = ""
+
+# : }}}
+
+# : Tabs {{{
+
+[tabs]
+active   = { fg = "#000000", bg = "#ffffff", bold = false }
+inactive = { fg = "#888888", bg = "#1a1a1a" }
+
+# Separator
+sep_inner = { open = "", close = "" }
+sep_outer = { open = "", close = "" }
+
+# : }}}
+
+# : Mode {{{
+
+[mode]
+normal_main = { fg = "#000000", bg = "#ffffff", bold = true }
+normal_alt  = { fg = "#000000", bg = "#cccccc", bold = true }
+
+# Select mode
+select_main = { fg = "#000000", bg = "#888888", bold = true }
+select_alt  = { fg = "#000000", bg = "#cccccc", bold = true }
+
+# Unset mode
+unset_main = { fg = "#000000", bg = "#888888", bold = true }
+unset_alt  = { fg = "#000000", bg = "#cccccc", bold = true }
+
+# : }}}
+
+# : Indicator of hovered file {{{
+
+[indicator]
+parent  = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
+
+# : }}}
+
+# : Status bar {{{
+
+[status]
+overall   = { bg = "#111111" }
+sep_left  = { open = "", close = "" }
+sep_right = { open = "", close = "" }
+
+# Permissions
+perm_sep   = { fg = "#555555" }
+perm_type  = { fg = "#ffffff" }
+perm_read  = { fg = "#cccccc" }
+perm_write = { fg = "#888888" }
+perm_exec  = { fg = "#aaaaaa" }
+
+# Progress
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#888888", bg = "#222222" }
+progress_error  = { fg = "#666666", bg = "#222222" }
+
+# : }}}
+
+# : Which {{{
+
+[which]
+cols            = 3
+mask            = { bg = "#151515" }
+cand            = { fg = "#ffffff" }
+rest            = { fg = "#666666" }
+desc            = { fg = "#cccccc" }
+separator       = "  "
+separator_style = { fg = "#555555" }
+
+# : }}}
+
+# : Confirmation {{{
+
+[confirm]
+border     = { fg = "#333333" }
+title      = { fg = "#888888", bold = true }
+body       = { fg = "#ffffff" }
+list       = { fg = "#ffffff" }
+btn_yes    = { fg = "#000000", bg = "#ffffff", bold = true }
+btn_no     = { fg = "#000000", bg = "#888888", bold = true }
+btn_labels = [ "  [y]es  ", "  (n)o  " ]
+
+# : }}}
+
+# : Spotter {{{
+
+[spot]
+border = { fg = "#333333" }
+title  = { fg = "#ffffff", bold = true }
+
+# Table
+tbl_col  = { fg = "#ffffff" }
+tbl_cell = { fg = "#000000", bg = "#cccccc", bold = true }
+
+# : }}}
+
+# : Notification {{{
+
+[notify]
+title_info  = { fg = "#888888" }
+title_warn  = { fg = "#aaaaaa" }
+title_error = { fg = "#666666" }
+
+# Icons
+icon_info  = ""
+icon_warn  = ""
+icon_error = ""
+
+# : }}}
+
+# : Picker {{{
+
+[pick]
+border   = { fg = "#888888" }
+active   = { fg = "#ffffff", bold = true }
+inactive = { fg = "#666666" }
+
+# : }}}
+
+# : Input {{{
+
+[input]
+border   = { fg = "#888888" }
+title    = { bold = true }
+value    = { fg = "#ffffff" }
+selected = { reversed = true }
+
+# : }}}
+
+# : Completion {{{
+
+[cmp]
+border   = { fg = "#888888" }
+active   = { bg = "#cccccc", fg = "#000000", bold = true }
+inactive = { fg = "#666666" }
+
+# : }}}
+
+[icon]
+dirs = [
+	{ name = "desktop", text = "" },
+	{ name = "documents", text = "" },
+	{ name = "downloads", text = "" },
+	{ name = "videos", text = "" },
+	{ name = "pictures", text = "" },
+	{ name = "music", text = "" },
+	{ name = "favorites", text = "" },
+
+	{ name = "unity", text = "", fg = "#e0e0e0" },
+	{ name = "programming", text = "" },
+	{ name = "3d", text = "" },
+	{ name = "study", text = "" },
+]
+globs = [
+  { url = "*theme*", text = "⯍" }
+]
+conds = [
+  { if = "dir", text = "󱃪" },
+]
+
+# : Task manager {{{
+
+[tasks]
+border  = { fg = "#888888" }
+title   = { bold = true }
+hovered = { fg = "#ffffff", bold = true, reversed = true }
+
+# : }}}
+
+# : Help menu {{{
+
+[help]
+on      = { fg = "#ffffff" }
+run     = { fg = "#888888" }
+desc    = { fg = "#cccccc" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#000000", bg = "#aaaaaa" }
+
+# : }}}
+
+# : File-specific styles {{{
+
+[filetype]
+rules = [
+  # Images (Light gray)
+  { mime = "image/*", fg = "#cccccc" },
+
+  # Media (Medium gray)
+  { mime = "{audio,video}/*", fg = "#888888" },
+
+  # Archives (Dark gray for caution)
+  { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#666666" },
+
+  # Empty files
+  # { mime = "inode/empty", fg = "#666666" },
+
+  # Documents (Light gray)
+  { mime = "application/{pdf,doc,rtf}", fg = "#dddddd" },
+
+  # Special files
+  { url = "*", is = "orphan", fg = "#0a0a0a", bg = "#666666" },
+  { url = "*", is = "exec", fg = "#ffffff", bold = true },
+
+  # Dummy files
+  { url = "*", is = "dummy", fg = "#0a0a0a", bg = "#666666" },
+  { url = "*/", is = "dummy", fg = "#0a0a0a", bg = "#666666" },
+
+  # Directories (White)
+  { url = "*/", fg = "#ffffff" },
+
+  # Fallback (Light gray)
+  { url = "*", fg = "#dddddd", bold = true, italic = }
+]
+
+# : }}}
